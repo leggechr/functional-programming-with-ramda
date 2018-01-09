@@ -1,0 +1,24 @@
+{
+  "name": "functional-programming-with-ramda",
+  "version": "1.0.0",
+  "description": "Build an app in a function style to analyze Twitter searches for DeveloperWeek 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leggechr/functional-programming-with-ramda.git"
+  },
+  "author": "Christine Legge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leggechr/functional-programming-with-ramda/issues"
+  },
+  "homepage": "https://github.com/leggechr/functional-programming-with-ramda#readme",
+  "dependencies": {
+    "oauth": "^0.9.15",
+    "ramda": "^0.25.0",
+    "underscore": "^1.8.3"
+  }
+}
