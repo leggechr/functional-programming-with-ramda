@@ -13,25 +13,25 @@ R.reverse(list) // => [5, 4, 3, 2, 1]
 
 let counter = 0;
 
-// `incrementImpure` incrememts the global variable `counter`. It has side effects
-function incrementImpure() {
+// `incrementSideEffects` incrememts the global variable `counter`. It has side effects
+function incrementSideEffects() {
   counter++;
   return counter;
 }
 
-incrementImpure(); // => 1
-incrementImpure(); // => 2
+incrementSideEffects(); // => 1
+incrementSideEffects(); // => 2
 counter; // => 2
 
 counter = 0;
 
-// `incrementPure` doesn't touch global variables. It has no side effects
-function incrementPure(num) {
+// `incrementNoSideEffects` doesn't touch global variables. It has no side effects
+function incrementNoSideEffects(num) {
   return num + 1;
 }
 
-incrementPure(counter) // => 1
-incrementPure(counter) // => 1
+incrementNoSideEffects(counter) // => 1
+incrementNoSideEffects(counter) // => 1
 counter; // => 0
 
 // Generating random numbers has side effects

@@ -1,6 +1,6 @@
 const R = require('ramda');
 
-// All Ramda functions are automaticallu curried
+// All Ramda functions are automatically curried
 
 R.add(3, 2) // => 5
 
