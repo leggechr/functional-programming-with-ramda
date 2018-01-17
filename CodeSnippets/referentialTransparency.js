@@ -34,11 +34,13 @@ incrementNoSideEffects(counter) // => 1
 incrementNoSideEffects(counter) // => 1
 counter; // => 0
 
-// Generating random numbers has side effects
+// Generating random numbers is not pure
 Math.random() // => ???
-// Getting the current date has side effects
+// Getting the current date is not pure
 Date.now() // => ???
 
 // Writing to the console, making an HTTP request are other examples of functions with side
 // effects. Side effects themselves aren't bad and are often necessary but the functions that have
 // them aren't pure.
+//
+// Restrict side effects to the output of the application

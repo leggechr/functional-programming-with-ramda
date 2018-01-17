@@ -31,11 +31,12 @@ const tweetList = [
 
 const isPopular = tweet => tweet.favourites > 500000;
 
+// rename these to have a verb
 const popularTweets = tweets => (
   tweets.filter(isPopular)
 );
 
-const popularTweetsUnderscore = tweets => (
+const popularTweetsUnderscore = tweets => ( // change to lodash
   _.filter(tweets, isPopular)
 );
 
