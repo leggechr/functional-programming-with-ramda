@@ -2,7 +2,7 @@ const R = require('ramda');
 const fs = require('fs');
 
 function readFile(hashtag) {
-  return JSON.parse(fs.readFileSync('Tweets/' + hashtag + '.txt', 'utf8'));
+  return JSON.parse(fs.readFileSync('Tweets/' + hashtag + '.json', 'utf8'));
 }
 
 exports.getTweets = (hashtags) => (
