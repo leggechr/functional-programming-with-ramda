@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/leggechr/functional-programming-with-ramda#readme",
   "dependencies": {
+    "lodash": "^4.17.4",
     "oauth": "^0.9.15",
-    "ramda": "^0.25.0",
-    "underscore": "^1.8.3"
+    "ramda": "^0.25.0"
   }
 }

@@ -1,4 +1,4 @@
-const _ = require('underscore');
+const _ = require('lodash');
 const R = require('ramda');
 
 const tweetList = [
@@ -31,20 +31,19 @@ const tweetList = [
 
 const isPopular = tweet => tweet.favourites > 500000;
 
-// rename these to have a verb
-const popularTweets = tweets => (
+const filterPopularTweets = tweets => (
   tweets.filter(isPopular)
 );
 
-const popularTweetsUnderscore = tweets => ( // change to lodash
+const filterPopularTweetsUnderscore = tweets => (
   _.filter(tweets, isPopular)
 );
 
-const popularTweetsRamda = R.filter(isPopular);
+const filterPopularTweetsRamda = R.filter(isPopular);
 
-popularTweets(tweetList);
-popularTweetsUnderscore(tweetList);
-popularTweetsRamda(tweetList);
+filterPopularTweets(tweetList);
+filterPopularTweetsUnderscore(tweetList);
+filterPopularTweetsRamda(tweetList);
 // => [
 //      {
 //        text: 'If only....',
