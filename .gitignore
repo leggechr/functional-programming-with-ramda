@@ -1,5 +1,6 @@
 # Dependency directories
 node_modules/
 
-poorCodeExamples.js
+demo.js
+examples.js
 tweetReaderScript.js

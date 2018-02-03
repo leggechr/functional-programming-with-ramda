@@ -1,12 +1,12 @@
 const R = require('ramda');
 
-const tweet1 = {
-  text: 'Functional programming is so fun #DeveloperWeek',
+const tweet = {
+  text: 'Just setting up my Twitter. #myfirstTweet',
   user: 'christine',
-  favourites: 150
+  favourites: 1
 };
 
-const tweets = [
+const tweetList = [
   {
     text: 'If only Bradley\'s arm was longer. Best photo ever. #oscars',
     user: 'ellen',
@@ -14,12 +14,12 @@ const tweets = [
   },
   {
     text: 'HELP ME PLEASE. A MAN NEEDS HIS NUGGS',
-    user: 'Carter',
+    user: 'carter',
     favourites: 989122
   },
   {
     text: 'Always in my heart @Harry_Styles . Yours sincerely, Louis',
-    user: 'Louis',
+    user: 'louis',
     favourites: 1041406
   }
 ];
@@ -31,14 +31,14 @@ const add1 = R.add(1);
 add1; // => [Function]
 add1(4); // => 5
 
-R.prop('text', tweet1); // => 'Functional programming is so fun #DeveloperWeek'
+R.prop('text', tweet); // => 'Functional programming is so fun #DeveloperWeek'
 
-const text = R.prop('text');
-text; // => [Function]
-text(tweet1); // => 'Functional programming is so fun #DeveloperWeek'
+const getText = R.prop('text');
+getText; // => [Function]
+getText(tweet); // => 'Functional programming is so fun #DeveloperWeek'
 
-R.map(text, tweets) // => ['If only....', 'HELP ME....', 'Always in.....']
+R.map(getText, tweetList) // => ['If only....', 'HELP ME....', 'Always in.....']
 
-const tweetTexts = R.map(text);
+const tweetTexts = R.map(getText);
 tweetTexts // => [Function]
-tweetTexts(text) // => ['If only....', 'HELP ME....', 'Always in.....']
+tweetTexts(tweetList) // => ['If only....', 'HELP ME....', 'Always in.....']

@@ -19,84 +19,61 @@ const HASHTAGS = [
 ];
 const tweets = getTweets(HASHTAGS);
 
-const removeDuplicates = R.uniqBy(R.prop('id'));
+// [Tweet] -> [Tweet]
+const removeDuplicates = R.uniqBy(R.prop('id_str'));
 
-const getLowerCaseText = R.compose(R.toLower, R.prop('text'));
-const getHashtagsFromTweet = R.compose(
-  R.map(getLowerCaseText),
-  R.path(['entities', 'hashtags'])
+// Hashtag -> String
+const getLowerCaseText = R.pipe(R.prop('text'), R.toLower);
+// Tweet -> [String]
+const getHashtagsFromTweet = R.pipe(
+  R.path(['entities', 'hashtags']),
+  R.map(getLowerCaseText)
 );
-const getHashtagInList = R.compose(
-  R.ifElse(R.isEmpty, R.always('not-found'), R.head),
+// Tweet -> String
+// If the tweet has multiple hashtags that match those in the list HASHTAGS this will
+// return the first one and ignore any others
+const getHashtagInList = R.pipe(
+  getHashtagsFromTweet,
   R.intersection(HASHTAGS),
-  getHashtagsFromTweet
+  R.ifElse(R.isEmpty, R.always('not-found'), R.head)
 );
-const groupByHashtag = R.groupBy(getHashtagInList)
+// [Tweet] -> {hashtag-text: [Tweet]}
+const groupTweetsByHashtag = R.groupBy(getHashtagInList)
 
-const sortByValue = R.compose(
-  R.fromPairs,
-  R.sortBy(R.nth(1)),
-  R.toPairs
+// {hashtag-text: Number} -> [[hashtag-text, Number]]
+const sortByValue = R.pipe(
+  R.toPairs,
+  R.sortBy(R.nth(1))
 );
 
-const createHashtagString = R.curry((item, scale, num, hashtag) => {
+// [Hashtag, Number] -> String
+// e.g. createHashtagBar(['cleancode', 40]) -> 'cleancode   ████'
+const createHashtagBar = pair => {
+  const hashtag = pair[0],
+        num = pair[1];
+
   const legend = hashtag + ' '.repeat(25 - hashtag.length);
-  const bar = item.repeat(Math.ceil(num / scale));
+  const bar = '█'.repeat(Math.ceil(num / 10));
   return legend + bar + ' ' + Math.round(num * 100)/100;
-});
+};
 
-const getGraphStrings = (item, scale) => (
-  R.compose(
-    R.values,
-    R.mapObjIndexed(createHashtagString(item, scale)),
-    sortByValue
-  )
+// {hashtag-text: Number} -> String
+const constructGraph = R.pipe(
+  sortByValue,
+  R.map(createHashtagBar),
+  R.join('\n')
 );
 
-// Graph by number of tweets
-const getTweetCountForHashtags = R.map(R.length)
-const getHashtagTweetCountStrings = R.compose(
-  getGraphStrings('█', 10),
-  getTweetCountForHashtags,
-  groupByHashtag,
-  removeDuplicates
+// {hashtag-text: [Tweet]} -> {hashtag-text: Number}
+const getTweetCountForHashtags = R.map(R.length);
+
+// [Tweet] -> String
+const getTweetCountGraph = R.pipe(
+  removeDuplicates,         // [Tweet] -> [Tweet]
+  groupTweetsByHashtag,     // [Tweet] -> {hashtag: [Tweet]}
+  getTweetCountForHashtags, // {hashtag-text : [Tweet]} -> {hashtag-text: Number}
+  constructGraph            // {hashtag-text: Number} -> String
 );
 
-// Graph by number of favourites
-const filterUnpopularHashtags = R.filter(R.compose(R.lte(50), R.length));
-const getFavoriteCountForHashtags = R.map(
-  R.compose(
-    R.sum,
-    R.take(50),
-    R.reverse,
-    R.sort(R.subtract),
-    R.pluck('favorite_count'),
-  )
-);
-
-const getHashTagFavoriteCountStrings = R.compose(
-  getGraphStrings('♥', 10),
-  getFavoriteCountForHashtags,
-  filterUnpopularHashtags,
-  groupByHashtag,
-  removeDuplicates
-);
-
-// Graph by average number of favourites per tweet
-const getAverageFavoriteCountForHashtags = R.map(
-  R.compose(
-    R.mean,
-    R.pluck('favorite_count')
-  )
-);
-
-const getAverageFavoriteCountStrings = R.compose(
-  getGraphStrings('★', 0.1),
-  getAverageFavoriteCountForHashtags,
-  groupByHashtag,
-  removeDuplicates
-);
-
-printGraph(getHashtagTweetCountStrings(tweets));
-printGraph(getHashTagFavoriteCountStrings(tweets));
-printGraph(getAverageFavoriteCountStrings(tweets));
+const tweetGraph = getTweetCountGraph(tweets);
+printGraph(tweetGraph);

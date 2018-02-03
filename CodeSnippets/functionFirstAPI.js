@@ -35,14 +35,16 @@ const filterPopularTweets = tweets => (
   tweets.filter(isPopular)
 );
 
-const filterPopularTweetsUnderscore = tweets => (
+const filterPopularTweetsLodash = tweets => (
   _.filter(tweets, isPopular)
 );
 
+// all Ramda functions take the data as the last parameter. This combined with automatic
+// currying makes it simple to write re-usable functions
 const filterPopularTweetsRamda = R.filter(isPopular);
 
 filterPopularTweets(tweetList);
-filterPopularTweetsUnderscore(tweetList);
+filterPopularTweetsLodash(tweetList);
 filterPopularTweetsRamda(tweetList);
 // => [
 //      {

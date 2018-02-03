@@ -12,7 +12,4 @@ exports.getTweets = (hashtags) => (
   )(hashtags)
 );
 
-exports.printGraph = (graphStrings) => {
-  console.log('-------------');
-  R.forEach(console.log, graphStrings);
-}
+exports.printGraph = console.log;

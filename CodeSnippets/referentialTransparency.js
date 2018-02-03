@@ -13,7 +13,7 @@ R.reverse(list) // => [5, 4, 3, 2, 1]
 
 let counter = 0;
 
-// `incrementSideEffects` incrememts the global variable `counter`. It has side effects
+// `incrementSideEffects` increments the global variable `counter`. It has side effects
 function incrementSideEffects() {
   counter++;
   return counter;
@@ -42,5 +42,3 @@ Date.now() // => ???
 // Writing to the console, making an HTTP request are other examples of functions with side
 // effects. Side effects themselves aren't bad and are often necessary but the functions that have
 // them aren't pure.
-//
-// Restrict side effects to the output of the application

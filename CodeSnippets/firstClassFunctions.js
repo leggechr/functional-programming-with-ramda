@@ -33,8 +33,6 @@ const add5 = curriedAdd(5);
 add5(1); // => 6
 add5(7); // => 12
 
-curriedAdd(1, 2); // => [Function] 😕
-
 const ramdaCurriedAdd = R.curry(add);
 ramdaCurriedAdd(1); // => [Function]
 ramdaCurriedAdd(1)(2); // => 3
