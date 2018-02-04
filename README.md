@@ -10,6 +10,7 @@ To experiment with the code snippets you can clone the repo and start a Node ins
 ```sh
 $ git clone https://github.com/leggechr/functional-programming-with-ramda.git
 $ cd functional-programming-with-ramda
+$ npm install
 $ node
 ```
 
