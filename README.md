@@ -1,5 +1,6 @@
 # Functional Programming with Ramda
 There are aspects of Functional Programming that can be easily leveraged in your current JavaScript codebase to help you write cleaner, more readable, and more maintainable code. In particular, function composition allows you to chain together multiple functions to make sophisticated systems out of simple parts. Ramda is a JavaScript utility library that can help you to write clean, concise and functional code. It makes function composition simple.
+
 <img src="https://github.com/leggechr/functional-programming-with-ramda/blob/master/female-technologist.png" alt=":female-technologist:" height="50" width="50">
 
 ### Running code snippets
