@@ -1,25 +1,30 @@
 # Functional Programming with Ramda
 There are aspects of Functional Programming that can be easily leveraged in your current JavaScript codebase to help you write cleaner, more readable, and more maintainable code. In particular, function composition allows you to chain together multiple functions to make sophisticated systems out of simple parts. Ramda is a JavaScript utility library that can help you to write clean, concise and functional code. It makes function composition simple.
 
-### Running code snippets
-The code snippets can be run in your terminal with Node.js (make sure you are using Node v8.0.0 or higher).
+The code from my presentation can be run in your terminal with Node.js (make sure you are using Node v8.0.0 or higher).
 
-To experiment with the code snippets you can clone the repo and start a Node instance:
+First, clone the repo and install the node modules:
 ```sh
 $ git clone https://github.com/leggechr/functional-programming-with-ramda.git
 $ cd functional-programming-with-ramda
+$ npm install
+```
+
+### Running code snippets
+To experiment with the code snippets you can start a Node instance:
+```sh
 $ node
 ```
 
 Then in the node shell, load in the code snippet you want:
 ```sh
-> .load CodeSnippets/file-name.js
+> .load CodeSnippets/<file-name.js>
 ```
 
 At this point you can call any of the defined functions and experiment with their behaviour.
 
 ### Running the Tweet graph demo
-The code from the Tweet graph demo can be run:
+To run the code from the Tweet graph demo:
 ```sh
 $ node tweetAnalyzer.js
 ```
