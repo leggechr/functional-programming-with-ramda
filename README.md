@@ -3,7 +3,7 @@ There are aspects of functional programming that can be easily leveraged in your
 
 <img src="https://github.com/leggechr/functional-programming-with-ramda/blob/master/female-technologist.png" alt=":female-technologist:" height="50" width="50">
 
-The code from my presentation can be run in your terminal with Node.js (make sure you are using Node v8.0.0 or higher).
+The code from my presentation can be run in your terminal with Node.js (make sure you are using Node 8 or higher).
 
 First, clone the repo and install the node modules:
 ```sh
