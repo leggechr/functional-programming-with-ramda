@@ -7,7 +7,7 @@ const HASHTAGS = [
   'boring',
   'cleancode',
   'curling',
-  'developerweek',
+  'devweek2018',
   'donaldtrump',
   'functionalprogramming',
   'golang',
