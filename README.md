@@ -1,7 +1,7 @@
 # Functional Programming with Ramda
 <a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
 
-This repo contains code snippets and a demo for my workshop on Functional Programming with Ramda given at DeveloperWeek 2018. You can find the presentation slides [here](https://github.com/leggechr/functional-programming-with-ramda/blob/master/Legge%2C%20Christine%2C%20Tues.pdf).
+This repo contains code snippets and a demo for my workshop on Functional Programming with Ramda given at DeveloperWeek 2018. You can find the presentation slides [here](https://github.com/leggechr/functional-programming-with-ramda/blob/master/Legge%2C%20Christine%2C%20Tues.pdf). You can find watch the presentation [here](https://www.youtube.com/watch?v=HijhNhnPeHg&feature=youtu.be).
 
 There are aspects of functional programming that can be easily leveraged in your current JavaScript codebase to help you write cleaner, more readable, and more maintainable code. In particular, function composition allows you to chain together multiple functions to make sophisticated systems out of simple parts. Ramda is a JavaScript utility library that can help you to write clean, concise and functional code. It makes function composition simple.
 
